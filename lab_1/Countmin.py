@@ -1,3 +1,6 @@
+#pasar a string
+#para proyecto revisar clustering lsh
+#programar countcy y count-sketch
 import random as rd
 import numpy as np
 
