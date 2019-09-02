@@ -1,6 +1,6 @@
 #pasar a string
 #para proyecto revisar clustering lsh
-#programar countcy y count-sketch
+#programar countcu y count-sketch
 import random as rd
 import numpy as np
 
@@ -27,7 +27,7 @@ class sketch():
 	"""docstring for sketch"""
 	
 	def __init__(self, delta, eps):
-		d = int(np.log2(1/delta)) 
+		d = int(np.log(1/delta)) 
 		w = int(4/eps)	
 		self.matriz = np.zeros((d,w), dtype=int)
 
