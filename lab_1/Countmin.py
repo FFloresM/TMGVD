@@ -29,16 +29,16 @@ class sketch():
 	def __init__(self, delta, eps):
 		d = int(np.log(1/delta)) 
 		w = int(4/eps)	
-		self.matriz = np.zeros((d,w), dtype=int)
+		self.tabla = np.zeros((d,w), dtype=int)
 
 	def update(self, x, hashes):
 		for i in range(len(hashes)):
-			self.matriz[i, hashes[i](x)] += 1
+			self.tabla[i, hashes[i](x)] += 1
 
 	def query(self, x):
 		values = []
 		for i in range(len(hashes)):
-			values.append(self.matriz[i,hashes[i](x)]) 
+			values.append(self.tabla[i,hashes[i](x)]) 
 		return min(values)
 			
 
