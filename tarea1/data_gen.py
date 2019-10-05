@@ -8,6 +8,7 @@ def randomString(stringLength=10):
     return ''.join(random.choice(letters) for i in range(stringLength))
 
 def zipf(a=2,n=100):
+	"""generate random numbers with zipf distribution"""
 	x = np.random.zipf(a,n)
 	x = [str(i) for i in x]
 	return x
