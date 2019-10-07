@@ -68,3 +68,31 @@ class CountMinCU(CountMin):
 		return super().query(x)
 		
 		
+class HeavyHitter():
+	"""docstring for HeavyHitter"""
+	def __init__(self, sketch, stream):
+		self.sketch = sketch
+		self.f_real = self.frecuency(stream)
+		self.total_len = len(stream)
+
+	def frecuency(self, stream):
+		a = set()
+		for i in stream:
+			a.add(i)
+		dic = {v:0 for v in a}
+		for i in stream:
+			dic[i]+=1
+
+		return dic
+
+	def HH(self, value):
+		"""values es % respecto del total de elementos"""
+		#freal = sort(self.freal)
+		hh =[]
+		per = self.total_len*value
+		for x in self.f_real:
+			if f_real[x] >= per:
+				hh.append(x)
+
+		return hh
+		

@@ -12,6 +12,3 @@ def zipf(a=2,n=100):
 	x = np.random.zipf(a,n)
 	x = [str(i) for i in x]
 	return x
-
-print(randomString(100))
-print(zipf())
