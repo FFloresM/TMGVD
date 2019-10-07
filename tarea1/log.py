@@ -1,6 +1,7 @@
 
 import numpy as np
 import hashlib
+
 class LogLog:
 	"""docstring for LogLog"""
 	def __init__(self, arg=None):
@@ -11,8 +12,7 @@ class LogLog:
 			return 0
 		index = 1
 		while x%2==0:
-			print(x)
-			x>>=1 #x = x >> 1
+			x>>=1 
 			index+=1
 		return index
 

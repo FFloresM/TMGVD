@@ -12,3 +12,13 @@ def zipf(a=2,n=100):
 	x = np.random.zipf(a,n)
 	x = [str(i) for i in x]
 	return x
+
+def prot(k=5,n=1000):
+	f = open("/home/francisco/Descargas/proteinasunicas.fasta", 'r')
+	data = f.read()
+	subset = data[:n]
+	for i in range(len(subset)):
+		kmer = subset[i:n+1]
+		print(kmer)
+
+		

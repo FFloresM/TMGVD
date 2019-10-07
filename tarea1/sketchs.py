@@ -70,29 +70,52 @@ class CountMinCU(CountMin):
 		
 class HeavyHitter():
 	"""docstring for HeavyHitter"""
-	def __init__(self, sketch, stream):
-		self.sketch = sketch
-		self.f_real = self.frecuency(stream)
+	def __init__(self, count, stream):
+		self.count = count
+		self.sketch = self.count.sketch
+		self.set, self.f_real = self.frecuency(stream)
 		self.total_len = len(stream)
 
+		#test
+		print(self.total_len, "SET :",len(self.set))
+
 	def frecuency(self, stream):
-		a = set()
+		conj = set()
 		for i in stream:
-			a.add(i)
-		dic = {v:0 for v in a}
+			conj.add(i)
+		dic = {v:0 for v in conj}
 		for i in stream:
 			dic[i]+=1
 
-		return dic
+		return conj, dic
 
-	def HH(self, value):
+	def HH_real(self, value):
 		"""values es % respecto del total de elementos"""
 		#freal = sort(self.freal)
-		hh =[]
+		hh ={}
 		per = self.total_len*value
 		for x in self.f_real:
-			if f_real[x] >= per:
-				hh.append(x)
+			if self.f_real[x] >= per:
+				hh[x] = self.f_real[x]
 
 		return hh
+
+	def HH_est(self, value):
+		""" hh estimado"""
+		hh_est ={} ##heavy-hitters estimado
+		f_est = {} #frecuencias estimadas desde sketchs
+		total_len_est = 0 #cantidad total en el strem segun sketch
+		
+		for x in self.set:
+			v = self.count.query(x)
+			f_est[x] = v
+			total_len_est += v	
+
+		per = total_len_est*value
+		for j in f_est:
+			if f_est[j] >= per:
+				hh_est[j] = f_est[j]
+
+		print("total len est :",total_len_est)
+		return hh_est
 		
