@@ -1,3 +1,9 @@
+"""
+Test para datos sintéticos de CountMin, CountMinSketch y CountMinCU
+Estimación de Heavy-Hitters con datos sintéticos de zipf
+
+"""
+
 from sketchs import CountMin, CountSketch, CountMinCU, HeavyHitter
 import data_gen as dg
 import random as rd
@@ -28,7 +34,7 @@ for i in data:
 #print(cmcu.query(v))
 
 ##HH test
-phi = 0.01
+phi = 0.1
 hh = HeavyHitter(cm, data)
 print(hh.HH_real(phi))
 print(hh.HH_est(phi))

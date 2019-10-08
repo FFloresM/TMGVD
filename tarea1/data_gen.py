@@ -13,12 +13,22 @@ def zipf(a=2,n=100):
 	x = [str(i) for i in x]
 	return x
 
-def prot(k=5,n=1000):
-	f = open("/home/francisco/Descargas/proteinasunicas.fasta", 'r')
-	data = f.read()
-	subset = data[:n]
-	for i in range(len(subset)):
-		kmer = subset[i:n+1]
-		print(kmer)
+def kmers(k=5,n=1, path_to_file=""):
+	kmers = []
+	conj = {}
+	with open(path_to_file, 'r') as file:
+		lines = [next(file) for x in range(n)]
+	
+	for line in lines:
+		for s in range(len(line)):
+			kmer = line[s:k+s]
+			if len(kmer) == k :
+				if kmer.isalpha():
+					kmers.append(kmer)
+
+	return kmers
+
+
+		
 
 		
