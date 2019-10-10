@@ -9,6 +9,7 @@ class CountMin:
 		self.d = int(mt.log(1/delta))
 		self.w = int(mt.exp(1)/epsilon)
 		self.sketch = np.zeros((self.d,self.w), dtype=int)
+		print('d = ', self.d, 'W = ', self.w)
 		
 	def index(self, x, i):
 		"""value x, seed i"""
@@ -32,6 +33,7 @@ class CountSketch():
 		self.d = int(mt.log(4/delta))
 		self.w = int(1/(epsilon**2))
 		self.sketch = np.zeros((self.d,self.w), dtype=int)
+		print('d = ', self.d, 'W = ', self.w)
 
 	def index(self, x, i):
 		"""value x, seed i"""
@@ -77,7 +79,7 @@ class HeavyHitter():
 		self.total_len = len(stream)
 
 		#test
-		print(self.total_len, "SET :",len(self.set))
+		print('n =',self.total_len, "SET :",len(self.set))
 
 	def frecuency(self, stream):
 		conj = set()

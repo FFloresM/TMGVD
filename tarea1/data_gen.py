@@ -26,7 +26,7 @@ def kmers(k=5,n=1, path_to_file=""):
 				if kmer.isalpha():
 					kmers.append(kmer)
 
-	return kmers
+	return len(kmers), kmers
 
 
 		
